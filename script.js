@@ -42,7 +42,15 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
       callHistory.appendChild(div);
 
-      
+      //Reduce coins functionality
+      const coinsElement = document.getElementById("coins");
+      let currentCoins = parseInt(coinsElement.innerText);
+      if (currentCoins > 0) {
+        currentCoins -= 20;
+        coinsElement.innerText = currentCoins;
+      } else {
+        alert("You don't have enough coin to make a call.");
+      }
     });
   });
 });
