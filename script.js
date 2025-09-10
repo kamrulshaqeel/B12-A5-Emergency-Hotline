@@ -19,7 +19,32 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // Call History Feature
+  const callBtns = document.querySelectorAll(".call-btn");
+  callBtns.forEach((callBtn) => {
+    callBtn.addEventListener("click", function (e) {
+      const card = callBtn.closest(".card");
+      const serviceName = card.querySelector(".service-name").innerText;
+      const number = card.querySelector(".number").innerText;
+      const callHistory = document.getElementById("call-history");
 
+      const div = document.createElement("div");
+      div.innerHTML = `
+      <div class="flex items-center justify-between">
+        <div class="w-[352px] h-[83px] mt-4">
+          <h1 class="font-semibold">${serviceName}</h1>
+          <p class="text-gray-500">${number}</p>
+        </div>
+        <div>
+          <h4>${new Date().toLocaleTimeString()}</h4>
+        </div>
+      </div>
+    `;
+      callHistory.appendChild(div);
+
+      
+    });
+  });
 });
 //Loved icon Feature
 let lovedNumCountElement = document.getElementById("love-count");
